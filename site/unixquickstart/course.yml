@@ -1,0 +1,69 @@
+name: unixforbeginners
+suffix: pg
+is_published: false
+upcoming: true
+tags:
+  - unix
+  - linux
+  - commands
+  - vi editor
+video_link:
+title: Unix for Begineers 
+instructor: Tayyabali
+short_introduction: Learn Unix with practicle skills 
+description: |
+  Have you ever thought that you are weak in Linux/Unix and you want to improve the command line skill ?
+  If your answer is yes then this course is for you. In this course we will give ou hands on experience of Linux commands and we 
+  will also look at some of the interesting problems which can be easliy solved using Linux commands.
+chapters:
+- name: module1
+  title: Module1
+  description: Introduction to the course.
+  lessons:
+  - module1/architecture.md
+  - module1/history.md
+
+- name: module2
+  title: Module2
+  description: Execution of Unix General Purpose Utility Commands
+  lessons:
+  - module2/general_commands.md
+  - module2/vieditor.md
+
+- name: module3
+  title: Module3
+  description: Execution of Unix General Purpose Utility Commands
+  lessons:
+  - module3/file_system.md
+  - module3/file_permissions.md
+  - module3/multiuser_env.md
+  - module3/file_commands.md
+  - module3/piping_redirection.md
+  - module3/vim_editor.md
+  - module3/archiving.md
+  - module3/user_management.md
+
+- name: module4
+  title: Module4
+  description: Process and Memory Management Commands
+  lessons:
+  - module4/process_management.md
+  - module4/memory_management.md
+
+- name: module5
+  title: Module5
+  description: Execution of Unix General Purpose Utility Commands
+  lessons:
+  - module5/intro_shell.md
+  - module5/arithmatic.md
+  - module5/file_operations.md
+
+
+- name: module6
+  title: Module6
+  description: Advanced Shell Scripts based on grep,sed,awk and perl
+  lessons:
+  - module6/grep.md
+  - module6/sed.md   
+  - module6/awk.md
+  - module6/perl.md
