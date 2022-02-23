@@ -35,12 +35,12 @@ chapters:
   description: Execution of Unix General Purpose Utility Commands
   lessons:
   - module3/file_system.md
-  - module3/file_permissions.md
-  - module3/multiuser_env.md
   - module3/file_commands.md
   - module3/piping_redirection.md
   - module3/vim_editor.md
   - module3/archiving.md
+  - module3/multiuser_env.md
+  - module3/file_permissions.md
   - module3/user_management.md
 
 - name: module4
