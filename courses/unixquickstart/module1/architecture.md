@@ -5,7 +5,7 @@ include_in_preview: false
 
 ### Unix Architecture
 
-Unix ........
+Unix is system is organised into layers as shown below 
 
 
 ### Installation of the Linux 

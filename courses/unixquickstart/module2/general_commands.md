@@ -205,7 +205,44 @@ Su Mo Tu We Th Fr Sa
 ```
 ### tty
 
+Lets see first what tty command gives us 
+
+```
+dbit@Tayyabali:~$ tty
+/dev/pts/1
+```
+
+tty is basically teletype which is a standard file name using which we are connected to standard input. If you open another terminal and check it will give you output as /dev/pts/2 which is second file. You can see below as you open more terminals corresponding files are created under /dev/pts directory. 
+
+```
+dbit@Tayyabali:/dev/pts$ ls
+0  1  2  3  ptmx
+```
+On most of the distribution you can open multiple terminal screen, mostly 6 are supported. You can use following key combinations to login on these termials 
+
+```
+CTRL + ALT + F1 – Lockscreen
+CTRL + ALT + F2 – Desktop Environment
+CTRL + ALT + F3 – TTY3
+CTRL + ALT + F4 – TTY4
+CTRL + ALT + F5 – TT5
+CTRL + ALT + F6 – TTY6
+```
+
+You can switch between these terminals and have simultinous sessions also.
+
+
 ### man
+
+man is nothing but mannual help on Linux. Its online help which you can use on terminal. 
+
+Syntax is as follows 
+
+```
+man [options] [section] [command]
+```
+
+Lets try 
 
 ### which
 

@@ -165,12 +165,120 @@ To logout simple use ```exit``` command or logout command.
 
 passwd commmand is used to change the password on command line 
 
-In Linux two files are used to manage the users on the system they are /etc/shadow and /etc/passwd. we will see the use of these files and how the user/groups information is stored. 
+With this command root user can change password of anyuser, and all other users can change only their password.
 
+Lets change password as follows 
+
+```
+ubuntu@Tayyabali:~$ passwd 
+Changing password for ubuntu.
+Current password: 
+New password: 
+Retype new password: 
+Password unchanged
+New password: 
+Retype new password: 
+passwd: password updated successfully
+```
+
+Note here if we type the same password, system will ask again for new password. 
+
+Normally in many Linux systems root password is not set by default, you can set root password using following command 
+
+```
+dbit@Tayyabali:~$ sudo passwd
+[sudo] password for dbit: 
+New password: 
+Retype new password: 
+passwd: password updated successfully
+
+```
+
+If you want to change password for another user then you can use following command
+
+```
+dbit@Tayyabali:~$ sudo passwd ubuntu
+New password: 
+Retype new password: 
+passwd: password updated successfully
+```
+
+Lets see some of the other usages of ```passwd``` command 
+
+To check users information 
+
+```
+dbit@Tayyabali:~$ sudo passwd -S ubuntu
+ubuntu P 02/23/2022 0 99999 7 -1
+```
+Lets see whats shown in the above output 
+
++ ubuntu - user name
++ P - Field indicates if the user account has a locked password (L), has
+           no password (NP), or has a usable password (P)
++ 02/23/2022 - This field is showing when the password was changed last time 
++ Min, Max age for the password and warning period, and inactivity period
+
+Please Note you need sudo permissions to run most of the user management commands 
+
+To check all users information 
+
+```
+dbit@Tayyabali:~$ sudo passwd -Sa
+root P 02/23/2022 0 99999 7 -1
+daemon L 08/19/2021 0 99999 7 -1
+......
+
+```
+
+You can delete users password using -d option
+
+```
+dbit@Tayyabali:~$ sudo passwd -d ubuntu
+passwd: password expiry information changed.
+```
+
+Using -e option you immediately force user to change password on next login
+
+```
+ubuntu@Tayyabali:/home/dbit$ sudo passwd -e ubuntu
+passwd: password expiry information changed.
+ubuntu@Tayyabali:/home/dbit$ exit
+exit
+
+dbit@Tayyabali:~$ su ubuntu 
+You are required to change your password immediately (administrator enforced)
+New password: 
+Retype new password: 
+You must choose a longer password
+New password: 
+Retype new password:    
+
+```
+As you can see above we have forced ubuntu user to change the password as soon as he logs in 
+
+Lock and unlock users password as shown below 
+
+```
+dbit@Tayyabali:~$ sudo passwd -l ubuntu 
+passwd: password expiry information changed.
+dbit@Tayyabali:~$ su ubuntu
+Password: 
+su: Authentication failure
+dbit@Tayyabali:~$ sudo passwd -u ubuntu 
+passwd: password expiry information changed.
+dbit@Tayyabali:~$ su ubuntu 
+Password: 
+
+```
+When you lock the password users wont be able to login
+
+You can set inactive days for password using ```passwd -i 10 ubuntu ```
+Users password will get expired after 10 days if not changed 
 
 ### useradd
 
-### useradd 
+### adduser 
 
 ### usermod
 
