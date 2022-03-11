@@ -17,8 +17,7 @@ In this lesson you will learn following memory management commands
 + pagesize 
   
 
-
-## free command 
+### free command 
 
 Free command is used to find out how much RAM is free and how much is used. It displays physical, swap, cache and buffers status 
 
@@ -107,7 +106,7 @@ In this file you will get total RAM size, total swap memory, consumed, free, ava
 
 For more information you can visit : https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/deployment_guide/s2-proc-meminfo
 
-## top
+### top
 
 top is used to display the process running in the system. When you run the top command you get following output
 
@@ -159,7 +158,7 @@ Process states :
 +  Z = zombie
 
 
-## htop
+### htop
 
 ![htop command ](htop.png)
 
@@ -172,3 +171,15 @@ You can use the keyboard to do various additional operations like
 + Use arrow keys to scroll through processes like left, right, home etc
 + Use function keys to search, filter, sort, change priority and kill processes.
 
+
+### df 
+
+### du
+
+### vmstat
+
+### demidecode
+
+### sar
+
+### pagesize 
