@@ -20,7 +20,7 @@ chapters:
   title: Module1
   description: Introduction to the course.
   lessons:
-  - module1/architecture.md
+  - module1/introduction.md
   - module1/history.md
 
 - name: module2
@@ -37,17 +37,17 @@ chapters:
   - module3/file_system.md
   - module3/file_commands.md
   - module3/piping_redirection.md
-  - module3/vim_editor.md
   - module3/archiving.md
   - module3/file_permissions.md
   - module3/user_management.md
 
 - name: module4
   title: Module4
-  description: Process and Memory Management Commands
+  description: Process, Memory and Package Management Commands
   lessons:
   - module4/process_management.md
   - module4/memory_management.md
+  - module4/package_management.md
 
 - name: module5
   title: Module5

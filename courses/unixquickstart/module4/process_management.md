@@ -4,7 +4,7 @@ include_in_preview: false
 ---
 
 
-# Introduction 
+# Introduction to Process Management 
 
 Processes on computer systems are nothing but the applications or programs which are running. 
 
@@ -252,6 +252,92 @@ fg is to get the job in the foreground and
 jobs will display all the jobs which are currently running in the background 
 
 
+Lets do some experiments 
+
+Step 1 : Start applications or processes from the terminal
+
+```
+dbit@Tayyabali:~$ gedit
+
+```
+
+It will open gedit application but in the foreground. The teminal is occupied so lets stop the application using ```Ctr + Z``` and then
+execute the bg command to put it in the background 
+
+as shown below 
+
+```
+dbit@Tayyabali:~$ gedit
+^Z
+[1]+  Stopped                 gedit
+
+dbit@Tayyabali:~$ bg
+[1]+ gedit &
+
+dbit@Tayyabali:~$ jobs
+[1]+  Running                 gedit &
+```
+
+You can see the [1] job is running in the background 
+
+similarly we can put the firefox in the background and then we use jobs command to see how many jons are running in the background
+
+  ```
+  dbit@Tayyabali:~$ firefox
+ATTENTION: default value of option mesa_glthread overridden by environment.
+^Z
+[2]+  Stopped                 firefox
+
+dbit@Tayyabali:~$ bg
+[2]+ firefox &
+
+
+dbit@Tayyabali:~$ jobs
+[1]-  Running                 gedit &
+[2]+  Running                 firefox &
+
+  ```
+
+You can now bring the any application using the number into foreground
+
+using following command
+
+```
+dbit@Tayyabali:~$ fg 1
+gedit
+```
+
 
 ### pgrep
+
+pgrep command is used to find the process Id matching the supplied name 
+
+following are the some of the examples 
+
+```
+dbit@Tayyabali:~$ pgrep firefox 
+38270
+dbit@Tayyabali:~$ pgrep code
+4224
+4232
+4233
+4235
+4262
+4272
+4291
+4330
+4352
+4373
+4426
+4472
+dbit@Tayyabali:~$ pgrep terminal
+38719
+```
+
+We can also use the -u option to specify the user whose processes we care interested in 
+
+```
+dbit@Tayyabali:~$ pgrep -u dbit terminal
+38719
+```
 

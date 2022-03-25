@@ -3,31 +3,129 @@ title: Execution of Unix General Purpose Utility Commands
 include_in_preview: false
 ---
 
-Execution of Unix General Purpose Utility Commands
+In this lesson we will learn basic commands but before we go to any command lets learn how to start terminal and basic syntax of the command.
 
-Comand line is the primary and mostly used way to interact with the Linux systems
+### Command Syntex 
 
-We use 
+All command follow similar syntax as follow 
+
+``` command [options] and then <arguments>```
+
++ Command is name of any command like ls, echo etc 
++ Options are used to modify output like add more details to output of filter output etc 
++ Arguments nothing but the input along with options like filename or directory 
+
+You can combine many options but remeber if any of the option needs the parameter then it must be specified immediately after the option.
+
+
+### Starting the Terminal 
+
+To start the terminal you can go to applications menu and launch the terminal.
+
+You can also use ``` Ctrl + Alt + t ``` to start terminal 
+
+Once you start the terminal you will get user prompt like shown below 
+
+```
+dbit@Tayyabali:~$ 
+
+```
+Lets understand the meaning of above output 
+
++ dbit is nothing but user name
++ @Tayyabali is name of the computer 
++ ```~``` is working directory of the user which is ```home``` currently. 
++ ```$``` is indicating its a normal user session if you switch to the root user it will change to ```#```
+
+Please note you can start many terminals or can have multiple tabs in the one terminal
 
 ### echo Command 
 
-echo command in unix is used to display text on screen. echo is also used for other purposes like creating file or listing the files from the directory and displaying the value of the variables. 
+```echo``` command is used to display text on screen. 
 
-Some of the examples of the echo commands are as follows.
 
-$ command -options 
-
-the ```$``` is the default command line prompt which says its a normal user session.
-
-if you switch to the root user it will change to ```#```
+Lets run following commands and see how we can use echo
 
 ```
-echo hi
-echo "Hello"
-a = 10
-echo $a
+dbit@Tayyabali:~$ echo hi
+hi
 ```
-We define variable a and assign value 10 to it. Using echo then wee can display its value.
+
+We can see echo just displayed whatever we passed to it. We have not used any options but given the argument as ```hi```
+
+Lets use quotes to display 
+
+```
+bit@Tayyabali:~$ echo "Hello"
+Hello
+```
+
+We can also use the single quotes as shown below 
+
+```
+dbit@Tayyabali:~$ echo 'Hello'
+Hello
+```
+
+``` echo ``` is also used to display the values of the variables. Lets use echo without quotes, with single quotes and with double quotes and observer the output
+
+
+```
+dbit@Tayyabali:~$ count=10
+dbit@Tayyabali:~$ echo count
+count
+dbit@Tayyabali:~$ echo $count
+10
+dbit@Tayyabali:~$ echo "$count"
+10
+dbit@Tayyabali:~$ echo '$count'
+$count
+```
+
+In above example 
+
++ We define variable using count=10
++ echo without $ and displays count 
++ echo with $ will display value of count as 10 
++ echo with duoble quotes does the same thing like without 
++ When we use single quotes it doesnt substitute the variable value
+
+Following example show echo used to display the files from directory
+
+```
+dbit@Tayyabali:~/demoGit$ echo * 
+file1 file2 file3 d.txt iamignored.txt README.md
+
+```
+
+With the help of -e option we can pass backslash escapes to modify the output as following 
+
+```
+dbit@Tayyabali:~/demoGit$ echo -e "Hello \v Good Evening \v How are you  "
+Hello 
+       Good Evening 
+                     How are you  
+
+
+dbit@Tayyabali:~/demoGit$ echo -e "Hello \t Good Evening \t How are you  "
+Hello 	 Good Evening 	 How are you  
+
+
+dbit@Tayyabali:~/demoGit$ echo -e "Hello \n Good Evening \n How are you  "
+Hello 
+ Good Evening 
+ How are you
+
+
+ dbit@Tayyabali:~/demoGit$ echo -e "Hello \\ Good Evening \\ How are you  "
+Hello \ Good Evening \ How are you
+```
+
++ use \v to put virticle tab 
++ \t to put tab
++ \n new line 
++ \\ backslash
+
 
 ### Fun with command line 
 
@@ -42,7 +140,7 @@ $ sudo apt install figlet
 $ sudo apt install lolcat
 ```
 
-You can then try following examples and try with different options
+You can then try following examples and try with different options and arguments 
 
 ```
 dbit@Tayyabali:~$ cowsay Hello
@@ -92,7 +190,7 @@ Hello
 ```
 lolcat will display the text in rainbow colors. 
 
-Here in the above example we are passing the output of the echo command to the lolcat to display in rainbow colors
+Here in the above example we are passing the output of the echo command to the lolcat to display in rainbow colors. ```| ```
 
 You can try following examples on your linux system and observer the outputs and play around it.
 
@@ -114,21 +212,45 @@ $ echo "Nice way to show output " | cowsay -f dragon-and-cow | lolcat
 
 
 
+All above examples shows how you can combine the multiple commands and do interesting things. You can use pipe ```|``` to combine multiple commands. 
+
+
 ### clear  
 
 Using clear command you can clear the screen content. You can also use Ctl + l to do the same task.
 
+```
+dbit@Tayyabali:~$ clear
+
+```
 
 ### exit  
 
 `exit` can be used for 
 
-1. to get out of the terminal 
+1. to get out of the terminal / exit the session / close the terminal 
 
-2. to exit from the ssh session 
+2. to exit from the ssh session
 
 3. to exit from the user login from the command line 
 
+```
+Examples
+
+```
+dbit@Tayyabali:~$ su root
+Password: 
+root@Tayyabali:/home/dbit# exit
+exit
+dbit@Tayyabali:~$ exit
+
+```
+
+We use ```su``` to switch to root user, it will ask password. Once we are in root login notice the doller sign is changed to ``` # ```
+
+We use the exit to logout from the root user, Next exit will close te session/terminal will be closed
+
+```
 
 ### date  
 
@@ -137,10 +259,27 @@ Use data in terminal or in shell programming to fetch the date or to calculate a
 Some of the examples of teh date are given as follows 
 
 ```
-date
-date 2022
+dbit@Tayyabali:~$ date
+Sunday 20 March 2022 10:36:34 AM IST
 
+
+dbit@Tayyabali:~$ date --date="2 year ago"
+Friday 20 March 2020 10:35:49 AM IST
+
+
+dbit@Tayyabali:~$ date --date="yesterday"
+Saturday 19 March 2022 10:37:21 AM IST
+
+
+dbit@Tayyabali:~$ date --date="4 days "
+Thursday 24 March 2022 10:38:22 AM IST
 ```
+
+--> `date` command will give current date 
+--> `date --date="2 year ago"` command will give you 2 years previos day
+--> `date --date="yesterday` command will disply yesterdays day
+-->  `date --date="4 days "` Command will display date of next 4 days
+
 
 ### uptime
 
@@ -152,7 +291,7 @@ dbit@Tayyabali:~$ uptime
 
 ```
 
-As you ca see in the above example, first column shows the curent time, second show hw long the system is running in hrs and minutes, 2 users are logged in and system load for the last 1, 5 and 15 minutes
+As you can see in the above example, first column shows the curent time, second show hw long the system is running in hrs and minutes, 2 users are logged in and system load for the last 1, 5 and 15 minutess
 
 Use -p to print information in pretty format 
 
@@ -345,7 +484,7 @@ We can also use full path of the command to execute it.
 
 ### history
 
-History command is usefull to see past executed commands, useually we use it with grep command to find the specific commands as shown below 
+History command is useful to see past executed commands, we can use it with grep command to find the specific commands as shown below 
 
 ```
 dbit@Tayyabali:~$ history | head 
@@ -364,7 +503,6 @@ dbit@Tayyabali:~$ history | grep "sudo apt "
   495  sudo apt install zsh
 
 ```
-
 Above example is showing searching sudo apt from the history of commands.
 
 ```
@@ -414,13 +552,12 @@ dbit@Tayyabali:~$ id -g dbit
 
 ```
 
-
 As you can see, above, id has given us by default all id user belongs to, you can also specify the user name also using -u or group using -g 
 
 
 ### pwd
 
-pwd command is used to find out which directory curently you are in. 
+pwd command is used to find out which directory curently you are in
 
 ```
 dbit@Tayyabali:~$ pwd
@@ -428,7 +565,6 @@ dbit@Tayyabali:~$ pwd
 ```
 
 ### whoami
-
 
 In multiuser envirnment it is possible that many users are logged in on the server so to find out with which user name you have logged in you can use whoami command.
 
@@ -588,6 +724,25 @@ dbit@Tayyabali:~$ ifconfig docker0 hw ether AA:BB:CC:DD:EE:FF
 dbit@Tayyabali:~$ ifconfig docker0 172.16.25.125 netmask 255.255.255.224 broadcast 172.16.25.63
 ```
 
-Note : I have used docker0 interface in the example you can choose any other interface availabe in your system. Please note if you know the concepts of the networking then only change ip and masks otherwise you will mess with your system.
+Note : I have used docker0 interface in the example you can choose any other interface availabe in your system. If you know the concepts of the networking then only change ip and masks otherwise you will mess with your system.
+
+
+### Review Questions 
+
+1. Using echo command display following output 
+```
+        Welcome 
+                to      
+                        the 
+                                Linux 
+                                        Lab 
+```
+2. Using date command find out day of birthday 5 years ago
+
+3. Using cal command find out your friends birthday next year.
+
+4. Using history find out all installation related executed commands in the past
+
+5. Find out all the users id on a give system
 
 

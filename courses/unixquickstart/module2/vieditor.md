@@ -5,8 +5,7 @@ include_in_preview: false
 
 ### Vi editor 
 
-When you work on unix / linux server this is the default text editor you will find. The oldest and most commonly used text editor.
-Vi is visual editor, you can use only keyboard and perform most of the text editing operations.
+When you work on Linux server vi is the default text editor you will find. The oldest and most commonly used text editor. Vi is visual editor, you can use only keyboard and perform text editing operations.
 
 vi works on two modes.
 
@@ -14,13 +13,13 @@ vi works on two modes.
 
 2. Insert Mode - in this mode whatever you type will get recored/inserted in the file.
 
-#### Vi modes operations 
+#### Vi examples 
 
-Please remember following ```Esc``` is used to go to command mode
+```Esc``` is used to go to command mode
 
-Some commands will take you to edit mode then to come of it you can use Esc key
+Some commands will take you to edit mode
 
-Lets see step by step how to work with vi edotor.
+Lets see step by step how to work with vi editor. 
 
 
 ### Creating file 
@@ -39,9 +38,9 @@ vi filename
 ~                                                                              
 "filename" [New File]
 ```
-Please note when we use filename to start vi editor, if file exist it will open it else vi will create the file and open it.
++ Please note when we use filename to start vi editor, if file exist it will open it else vi will create the file and open it.
 
-If we start vi editor without specifying the file name then while saving you can specify the name
++ If we start vi editor without specifying the file name then while saving you can specify the name
 
 Now we have created the file lets edit it. 
 
@@ -53,7 +52,7 @@ To go to insert mode you can user following commands
 2. o - Open a line below the current line 
 3. O - Open a line above the current line
 
-Lets follow the instructions to create file, edit it and use curson movment keys.
+Lets follow the instructions to create file, edit it and use curson movement keys.
 
 Step 1 : Start vi editor using ```vi filename```
 
@@ -96,6 +95,7 @@ Try to practice all above keys to move your cursor in the file.
 
 You will be able to do it very quickly once to practice enough.
 
+
 Lets now also use the small ```o``` and Capital ```O``` to insert line belo and above the curson positions
 
 Go to the last line of the file using cursor movement keys and use ```O``` to insert line, your mode is now changed to insert mode and you can type in the file.
@@ -125,6 +125,7 @@ Summary of file saving commads
 2. :w filename - specify the file name in which we want to save
 3. :wq - Save and quite file 
 4. :q! - quite vi without saving the file
+
 
 Lets now see window movement commands and how to use them
 
@@ -200,4 +201,31 @@ Example 3 : Search and replace the pattern in the entire file
 
 Example 4 : Search and delete the pattern 
           ```:%s/apple//g```
+
+
+### Excercise 
+
+1. Create file helloVi.txt using vi editor
+
+2. Type 5 lines in the file as shown following 
+
+    ```
+    Now the tide has receded
+    And the sand is coated in bitter salt
+    From tears of loss and recrimination.
+    Time like the tide will wash away tears
+    But will never be able to fill the empty heart
+    ```
+
+3. Save file and exit the vi 
+
+4. Open helloVi.txt file and make wash work Capital from 5 line
+
+5. Set line numbers in the vi editor 
+
+6. Convert the tears to fear using search and replace in vi 
+
+7. Delete the 3rd line 
+
+8. Copy paste the 4th line and paste below the last line
 

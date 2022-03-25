@@ -278,11 +278,62 @@ Users password will get expired after 10 days if not changed
 
 ### useradd
 
+
 ### adduser 
+
+adduser is userfriendly way to add the user to the system. Only root user or sudoers can ass the users into the syste.
+
+```
+dbit@Tayyabali:~$ sudo adduser ubuntu2
+Adding user `ubuntu2' ...
+Adding new group `ubuntu2' (1002) ...
+Adding new user `ubuntu2' (1002) with group `ubuntu2' ...
+The home directory `/home/ubuntu2' already exists.  Not copying from `/etc/skel'.
+New password: 
+Retype new password: 
+passwd: password updated successfully
+Changing the user information for ubuntu2
+Enter the new value, or press ENTER for the default
+	Full Name []: Ubuntu2
+	Room Number []: 
+	Work Phone []: 
+	Home Phone []: 
+	Other []: 
+Is the information correct? [Y/n] Y
+```
+
+### userdel
+
+To remove user from the system we can use userdel command, It will not delete the users files and data 
+
+```
+dbit@Tayyabali:~$ sudo deluser ubuntu2
+Removing user `ubuntu2' ...
+Warning: group `ubuntu2' has no more members.
+Done.
+```
+To delete home and user data use following command 
+
+```
+sudo deluser --remove-home username
+```
 
 ### usermod
 
-### userdel
+Using usermode command you can do following 
+
+1. Change home directory of the user 
+2. Lock and unlock the user and 
+3. Expire password of users 
+4. Edit groups
+5. Change the login name 
+6. Set password for the user 
+7. Assign shell to a user 
+8. Change the id of the user 
+
+Examples 
+
+
 
 ### groupadd
 
@@ -300,3 +351,4 @@ Users password will get expired after 10 days if not changed
 
 ### chfn
 
+Using the chfn you can change the realname of the user and its related information also
